@@ -1,0 +1,6 @@
+[submodule ".local/share/nvim/site/pack/plugins/start/nightfox.nvim"]
+	path = .local/share/nvim/site/pack/plugins/start/nightfox.nvim
+	url = https://github.com/EdenEast/nightfox.nvim.git
+[submodule ".local/share/nvim/site/pack/plugins/start/markdown-preview.nvim"]
+	path = .local/share/nvim/site/pack/plugins/start/markdown-preview.nvim
+	url = https://github.com/iamcco/markdown-preview.nvim.git
