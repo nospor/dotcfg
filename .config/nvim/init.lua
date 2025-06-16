@@ -1,6 +1,7 @@
--- vim.opt.rtp:append { "/usr/bin/fzf" }
+--vim.opt.rtp:append { "~/fzf" }
 
 require 'user.preferences'
+require 'plugins.lsp'
 
 -- theme
 require("nightfox").setup {

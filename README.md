@@ -27,6 +27,11 @@ To add submodules go to *~/.local/share/nvim/site/pack/plugins/start* and run
 dotcfg submodule add YOUR GIT MODULE YOU WANT TO ADD
 ```
 
+After adding submodule/plugin, don't forget to update HELP:
+```
+nvim --headless -c 'helptags ALL' -c 'quit'
+```
+
 When cloning on other machine, you need to recursive clone the submodules:
 ```
 dotcfg submodule update --init --recursive -f

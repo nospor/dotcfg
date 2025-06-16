@@ -35,4 +35,8 @@ vim.keymap.set('n', '<leader>q', '<cmd>quitall<cr>', {desc = 'Exit vim'})
 
 vim.keymap.set({'n', 'x'}, 'gy', '"+y', {desc = 'Copy to clipboard'})
 vim.keymap.set({'n', 'x'}, 'gp', '"+p', {desc = 'Paste clipboard text'})
+vim.keymap.set({'i'}, '<leader>x', 'vim.lsp.omnifunc()', {desc = 'Paste clipboard text'})
 
+vim.o.completeopt = "popup,menu,preview,noinsert"
+vim.keymap.set('i', '<c-space>', '<c-x><c-o>')
+--vim.keymap.set("i", "<Tab>", [[pumvisible() ? (complete_info().selected == -1 ? "<C-e><Tab>" : "<C-y>") : "<TAB>"]], {silent = true})

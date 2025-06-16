@@ -120,7 +120,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 dstop() { docker stop $(docker ps -a -q); }
-#drm() { docker rm $(docker ps -a -q); }
 drmi() { docker rmi $(docker images -q); }
 #remove only dangling images
 drmid() { docker rmi $(docker images -f dangling=true -q) }
@@ -128,73 +127,71 @@ drmid() { docker rmi $(docker images -f dangling=true -q) }
 drmv() { docker volume rm $(docker volume ls -q -f dangling=true) }
 dexec() { docker exec -i -t $@ bash; }
 dexecash() { docker exec -i -t $@ ash; }
-# dip() { docker inspect $(docker ps -q) | grep IPA; }
 dup() { docker-compose up -d; }
 dps() { docker ps $@; }
 ds() { ./docker.sh $@; }
-dc() { docker-compose $@; }
+dc() { docker compose $@; }
 dcip() { docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $@ }
-drmnonei() {docker images | grep "<none>" | awk '{print $3}' | xargs docker rmi}
-
-cupmm() { composer73 up mediatel/mapping; }
-pstorm() { /home/robertn/PhpStorm-193.6494.47/bin/phpstorm.sh }
-composer() { docker run --rm -it --dns=192.168.0.112 --dns-search=mediatel.co.uk \
-    -v $(pwd):/app \
-    -v ~/.composer:/home/composer/.composer \
-    -v ~/.ssh/id_rsa:/root/.ssh/id_rsa:ro \
-    composer $@
-}
-
-composerprv() { docker run --rm -it \
-    -v $(pwd):/usr/src/app \
-    -v ~/.composer:/home/composer/.composer \
-    -v ~/.ssh/id_rsa:/home/composer/.ssh/id_rsa:ro \
-    composer $@
-}
-
-#composer/composer:alpine
-composer7() { 
-    docker run --rm -v $(pwd):/app prooph/composer:7.1 $@
-}
-
-composer73() { 
-    docker run --rm -it --dns=192.168.0.112 --dns-search=mediatel.co.uk \
-    -v $(pwd):/app \
-    -v ~/.composer:/home/composer/.composer \
-    -v ~/.ssh/id_rsa:/root/.ssh/id_rsa:ro \
-    prooph/composer:7.3 $@
-}
-
+drmnonei() { docker images | grep "<none>" | awk '{print $3}' | xargs docker rmi }
+#
+#cupmm() { composer73 up mediatel/mapping; }
+#pstorm() { /home/robertn/PhpStorm-193.6494.47/bin/phpstorm.sh }
+#composer() { docker run --rm -it --dns=192.168.0.112 --dns-search=mediatel.co.uk \
+#    -v $(pwd):/app \
+#    -v ~/.composer:/home/composer/.composer \
+#    -v ~/.ssh/id_rsa:/root/.ssh/id_rsa:ro \
+#    composer $@
+#}
+#
+#composerprv() { docker run --rm -it \
+#    -v $(pwd):/usr/src/app \
+#    -v ~/.composer:/home/composer/.composer \
+#    -v ~/.ssh/id_rsa:/home/composer/.ssh/id_rsa:ro \
+#    composer $@
+#}
+#
+#composer7() { 
+#    docker run --rm -v $(pwd):/app prooph/composer:7.1 $@
+#}
+#
+#composer73() { 
+#    docker run --rm -it --dns=192.168.0.112 --dns-search=mediatel.co.uk \
+#    -v $(pwd):/app \
+#    -v ~/.composer:/home/composer/.composer \
+#    -v ~/.ssh/id_rsa:/root/.ssh/id_rsa:ro \
+#    prooph/composer:7.3 $@
+#}
+#
 memoryuse() { ps aux  | awk '{print $6/1024 " MB\t\t" $11}'  | sort -n }
-node() {docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app node:4 node $@}
-npm() {docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app node:4 npm $@}
-npm8() {docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app node:8 npm $@}
-npm10() {docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app node:10 npm $@}
-node10() {docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app node:10 node $@}
+#node() { docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app node:4 node $@}
+##npm() {docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app node:4 npm $@}
+npm8() { docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app node:8 npm $@}
+npm10() { docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app node:10 npm $@}
+node10() { docker run -it --rm -v "$PWD":/usr/src/app -w /usr/src/app node:10 node $@}
 mapwatch() { docker run -it --name=mapwatcher --rm -v "$PWD":/usr/src/app -p 35729:35729 -w /usr/src/app node:10 ./node_modules/.bin/gulp watch }
 mapstopwatch() { docker stop mapwatcher }
 surveyswatch() { docker run -it --name=surveywatcher --rm -v "$PWD":/usr/src/app -w /usr/src/app node:8 ./node_modules/.bin/encore dev --watch }
 surveyswatchstop() { docker stop surveywatcher }
 surveysproduction() { docker run -it --name=surveywatcher --rm -v "$PWD":/usr/src/app -w /usr/src/app node:8 ./node_modules/.bin/encore production  }
-docker-volume-size() {sudo du -sh $(docker volume inspect --format '{{ .Mountpoint }}' $@)}
-
-phan() { docker run -v $PWD:/mnt/src --rm -u "$(id -u):$(id -g)" cloudflare/phan:latest }
-
-runc() { docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4.9 g++ $1 && ./a.out }
-
+docker-volume-size() { sudo du -sh $(docker volume inspect --format '{{ .Mountpoint }}' $@)}
+#
+#phan() { docker run -v $PWD:/mnt/src --rm -u "$(id -u):$(id -g)" cloudflare/phan:latest }
+#
+#runc() { docker run -it --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc:4.9 g++ $1 && ./a.out }
+#
 runjava() { docker run --rm -it -v "$PWD":/usr/src/myapp -w /usr/src/myapp openjdk:11 javac $1.java && docker run --rm -it -v "$PWD":/usr/src/myapp -w /usr/src/myapp openjdk:11 java $1 }
-
-#ab() { docker run --rm jordi/ab ab $@ }
-
+#
+#
 export DOCKER_ENV_USR="robertn"
 export BEHAT_ENV_USR="behat"
 alias lzd='lazydocker'
 alias dotcfg='git --git-dir=$HOME/.dotcfg/ --work-tree=$HOME'
-
-. "$HOME/.local/bin/env"
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/robertn/.lmstudio/bin"
-# End of LM Studio CLI section
-
+#alias docker-compose='docker compose'
+#
+##. "$HOME/.local/bin/env"
+#
 export EDITOR=vim
+#
+#
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
