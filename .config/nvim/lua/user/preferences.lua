@@ -57,5 +57,6 @@ vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Fi
 vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
 
-
+vim.keymap.set('n', '<C-x>', '<Cmd>Neotree focus<CR>')
+vim.keymap.set('n', '<C-x><C-x>', '<Cmd>Neotree float git_status<CR>')
 

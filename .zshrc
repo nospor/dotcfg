@@ -190,6 +190,7 @@ alias dotcfg='git --git-dir=$HOME/.dotcfg/ --work-tree=$HOME'
 #
 ##. "$HOME/.local/bin/env"
 #
+alias vim='nvim'
 export EDITOR=vim
 #
 #
