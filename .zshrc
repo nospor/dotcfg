@@ -128,7 +128,8 @@ drmv() { docker volume rm $(docker volume ls -q -f dangling=true) }
 dexec() { docker exec -i -t $@ bash; }
 dexecash() { docker exec -i -t $@ ash; }
 dup() { docker-compose up -d; }
-dps() { docker ps $@; }
+#dps() { docker ps $@ | less -S; }
+dps() { docker ps --format="table {{.Image}}\t{{.Ports}}\t{{.Status}}\t{{.Names}}" $@; }
 ds() { ./docker.sh $@; }
 dc() { docker compose $@; }
 dcip() { docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $@ }

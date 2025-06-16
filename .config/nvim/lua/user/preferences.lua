@@ -35,7 +35,6 @@ vim.keymap.set('n', '<leader>q', '<cmd>quitall<cr>', {desc = 'Exit vim'})
 
 vim.keymap.set({'n', 'x'}, 'gy', '"+y', {desc = 'Copy to clipboard'})
 vim.keymap.set({'n', 'x'}, 'gp', '"+p', {desc = 'Paste clipboard text'})
-vim.keymap.set({'i'}, '<leader>x', 'vim.lsp.omnifunc()', {desc = 'Paste clipboard text'})
 
 vim.o.completeopt = "popup,menu,preview,noinsert"
 vim.keymap.set('i', '<c-space>', '<c-x><c-o>')
@@ -58,5 +57,6 @@ vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find exis
 
 
 vim.keymap.set('n', '<C-x>', '<Cmd>Neotree focus<CR>')
-vim.keymap.set('n', '<C-x><C-x>', '<Cmd>Neotree float git_status<CR>')
+--vim.keymap.set('n', '<C-x><C-x>', '<Cmd>Neotree float git_status<CR>')
+vim.keymap.set('n', '<C-z>', '<Cmd>FloatermNew lazygit<CR>')
 

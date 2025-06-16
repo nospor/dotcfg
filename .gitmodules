@@ -25,3 +25,6 @@
 [submodule ".local/share/nvim/site/pack/plugins/start/cuddlefish.nvim"]
 	path = .local/share/nvim/site/pack/plugins/start/cuddlefish.nvim
 	url = https://github.com/comfysage/cuddlefish.nvim.git
+[submodule ".local/share/nvim/site/pack/plugins/start/vim-floaterm"]
+	path = .local/share/nvim/site/pack/plugins/start/vim-floaterm
+	url = https://github.com/voldikss/vim-floaterm.git
