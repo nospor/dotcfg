@@ -22,6 +22,8 @@ dotcfg config --local status.showUntrackedFiles no # Disable showing untracked f
 
 ## SUBMODULES
 
+**NOTE**: I am not using submodules anymore as I moved to lazy.vim package manager. But will keep it for future reference
+
 To add submodules go to *~/.local/share/nvim/site/pack/plugins/start* and run
 ```
 dotcfg submodule add YOUR GIT MODULE YOU WANT TO ADD
@@ -35,4 +37,23 @@ nvim --headless -c 'helptags ALL' -c 'quit'
 When cloning on other machine, you need to recursive clone the submodules:
 ```
 dotcfg submodule update --init --recursive -f
+```
+
+## NERD FONTS
+To install nerd fonts (choose your font):
+```
+wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip \
+&& cd ~/.local/share/fonts \
+&& unzip JetBrainsMono.zip \
+&& rm JetBrainsMono.zip \
+&& fc-cache -fv
+```
+
+Don't forget to configure your terminal to use that font
+
+## CLIPBOARD
+When clipboard is not working, saying *no provider*, run:
+
+```
+sudo apt-get install xclip
 ```
