@@ -6,6 +6,17 @@ return {
         build = ":TSUpdate",
         config = function()
             local config = require("nvim-treesitter.configs")
+            vim.opt.foldmethod = "expr"
+            vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+            vim.opt.foldlevel = 99
+            vim.opt.foldenable = true
+            -- shortcut for toggling folds: za
+            -- shortcut for opening all folds: zR
+            -- shortcut for closing all folds: zM
+            -- shortcut for opening current fold: zo
+            -- shortcut for closing current fold: zc
+
+
             config.setup({
                 ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "javascript", "php", "twig", "html", "dockerfile", "css", "json", "yaml" },
                 sync_install = false,
