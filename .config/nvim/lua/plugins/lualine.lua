@@ -3,7 +3,13 @@ return {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         opts = {
-            theme = 'dracula'
+            options = {
+                theme = 'dracula'
+            },
+            sections = {
+                lualine_a = { 'mode', 'buffers' },
+                lualine_c = { },
+            },
         }
     }
 }
