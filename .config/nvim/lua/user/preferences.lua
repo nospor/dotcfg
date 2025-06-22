@@ -1,4 +1,5 @@
 vim.o.number = true
+vim.o.relativenumber = true
 vim.o.wrap = false
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
@@ -31,6 +32,8 @@ vim.o.splitbelow = true
 
 vim.keymap.set('n', '<leader>w', '<cmd>write<cr>', {desc = 'Save file'})
 vim.keymap.set('n', '<leader>q', '<cmd>quitall<cr>', {desc = 'Exit vim'})
+
+vim.keymap.set('n', 'a', 'i', {desc = 'Make a as i'})
 
 vim.keymap.set('i', '<c-space>', '<c-x><c-o>')
 
