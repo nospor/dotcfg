@@ -187,7 +187,16 @@ export DOCKER_ENV_USR="robertn"
 export BEHAT_ENV_USR="behat"
 alias lzd='lazydocker'
 alias dotcfg='git --git-dir=$HOME/.dotcfg/ --work-tree=$HOME'
+
 #alias docker-compose='docker compose'
+alias ls='eza'
+alias ll='eza -alh'
+alias tree='eza --tree'
+
+alias cat='bat'
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 #
 ##. "$HOME/.local/bin/env"
 #
