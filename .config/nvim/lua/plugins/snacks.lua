@@ -1,5 +1,7 @@
 return {
     {
+        -- to search in files in given directory: mysearchterm -- -g=**/mySubDirectory/**, eg
+        -- others -- -g=appcode/migrations/**
         "folke/snacks.nvim",
         priority = 1000,
         lazy = false,
@@ -8,14 +10,23 @@ return {
         opts = {
             bigfile = { enabled = true },
             -- dashboard = { enabled = true },
-            explorer = { enabled = true},
+            explorer = { enabled = true },
             indent = { enabled = true },
             input = { enabled = true },
             notifier = {
                 enabled = true,
                 timeout = 2000,
             },
-            picker = { enabled = true, sources = { explorer = { layout = {auto_hide = {"input"}}}} },
+            picker = {
+                enabled = true,
+                hidden = true,
+                ignored = true,
+                sources = {
+                    files = { hidden = true, ignored = true },
+                    explorer = {
+                        layout = { auto_hide = { "input" } } }
+                }
+            },
             quickfile = { enabled = true },
             scope = { enabled = true },
             --scroll = { enabled = true },
@@ -68,7 +79,7 @@ return {
             { "<leader>n",       function() Snacks.picker.notifications() end,                           desc = "Notification History" },
             { "<leader>e",       function() Snacks.explorer() end,                                       desc = "File Explorer" },
             -- find
-            { "<leader>fb",      function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
+            --{ "<leader>fb",      function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
             { "<leader>fc",      function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
             --{ "<leader>ff",      function() Snacks.picker.files() end,                                   desc = "Find Files" },
             { "<leader>fg",      function() Snacks.picker.git_files() end,                               desc = "Find Git Files" },
@@ -84,7 +95,7 @@ return {
             { "<leader>gf",      function() Snacks.picker.git_log_file() end,                            desc = "Git Log File" },
             -- Grep
             -- { "<leader>sb",      function() Snacks.picker.lines() end,                                   desc = "Buffer Lines" },
-            { "leader>sb",      function() Snacks.picker.grep_buffers() end,                            desc = "Grep Open Buffers" },
+            { "leader>sb",       function() Snacks.picker.grep_buffers() end,                            desc = "Grep Open Buffers" },
             { "<leader>sg",      function() Snacks.picker.grep() end,                                    desc = "Grep" },
             { "<leader>sw",      function() Snacks.picker.grep_word() end,                               desc = "Visual selection or word", mode = { "n", "x" } },
             -- search
@@ -110,11 +121,11 @@ return {
             { "<leader>su",      function() Snacks.picker.undo() end,                                    desc = "Undo History" },
             { "<leader>uC",      function() Snacks.picker.colorschemes() end,                            desc = "Colorschemes" },
             -- LSP
-            { "zd",              function() Snacks.picker.lsp_definitions() end,                         desc = "Goto Definition" },
-            { "zD",              function() Snacks.picker.lsp_declarations() end,                        desc = "Goto Declaration" },
-            { "zr",              function() Snacks.picker.lsp_references() end, mode = 'n',                          nowait = true,                     desc = "References Snacks" },
-            { "zI",              function() Snacks.picker.lsp_implementations() end,                     desc = "Goto Implementation" },
-            { "zy",              function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto T[y]pe Definition" },
+            { "\\d",             function() Snacks.picker.lsp_definitions() end,                         desc = "Goto Definition" },
+            { "\\D",             function() Snacks.picker.lsp_declarations() end,                        desc = "Goto Declaration" },
+            { "\\r",             function() Snacks.picker.lsp_references() end,                          mode = 'n',                        nowait = true,      desc = "References Snacks" },
+            { "\\I",             function() Snacks.picker.lsp_implementations() end,                     desc = "Goto Implementation" },
+            { "\\y",             function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto T[y]pe Definition" },
             { "<leader>ss",      function() Snacks.picker.lsp_symbols() end,                             desc = "LSP Symbols" },
             { "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end,                   desc = "LSP Workspace Symbols" },
             -- Other
@@ -123,6 +134,7 @@ return {
             { "<leader>.",       function() Snacks.scratch() end,                                        desc = "Toggle Scratch Buffer" },
             { "<leader>S",       function() Snacks.scratch.select() end,                                 desc = "Select Scratch Buffer" },
             { "<leader>n",       function() Snacks.notifier.show_history() end,                          desc = "Notification History" },
+            { "<leader>dba",     ':%bd | e# | bd#<cr> |\'"',                                             desc = "Delete All Buffers except current one" },
             { "<leader>db",      function() Snacks.bufdelete() end,                                      desc = "Delete Buffer" },
             { "<leader>cR",      function() Snacks.rename.rename_file() end,                             desc = "Rename File" },
             { "<leader>gB",      function() Snacks.gitbrowse() end,                                      desc = "Git Browse",               mode = { "n", "v" } },

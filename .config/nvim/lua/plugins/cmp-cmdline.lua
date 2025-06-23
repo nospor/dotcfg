@@ -6,14 +6,21 @@ return {
         'L3MON4D3/LuaSnip',
         dependencies = {
             'saadparwaiz1/cmp_luasnip',
-            "rafamadriz/friendly-snippets"
         }
+    },
+    {
+        "rafamadriz/friendly-snippets",
+        config = function()
+            -- This plugin is used to provide snippets for various languages.
+            -- It is automatically loaded by luasnip when needed.
+            require("luasnip.loaders.from_vscode").lazy_load()
+        end
+
     },
     {
         "hrsh7th/nvim-cmp",
         config = function()
             local cmp = require 'cmp'
-            require("luasnip.loaders.from_vscode").lazy_load()
             local luasnip = require("luasnip")
 
             vim.keymap.set({ "s" }, "<Tab>", function()
