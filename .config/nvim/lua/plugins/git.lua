@@ -2,8 +2,11 @@ return {
     {
         "lewis6991/gitsigns.nvim",
         config = function()
+            vim.keymap.set("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>", { desc = "Gitsigns Preview Hunk" })
+            vim.keymap.set("n", "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>", { desc = "Gitsigns Reset Hunk" })
+            vim.keymap.set("n", "<leader>gS", "<cmd>Gitsigns stage_hunk<cr>", { desc = "Gitsigns Stage/Unstage Hunk" })
             require("gitsigns").setup({
-                current_line_blame = true,                 -- ← enables inline blame
+                current_line_blame = true, -- ← enables inline blame
                 current_line_blame_opts = {
                     delay = 500,
                     virt_text_pos = "eol", -- or 'overlay' or 'right_align'
