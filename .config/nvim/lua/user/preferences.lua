@@ -1,3 +1,12 @@
+vim.scriptencoding = 'utf-8'
+vim.o.encoding = 'utf-8'
+vim.o.fileencoding = 'utf-8'
+vim.o.title = true
+vim.o.autoindent = true
+vim.o.smartindent = true
+vim.o.backup = false
+vim.o.ignorecase = true
+
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.wrap = false

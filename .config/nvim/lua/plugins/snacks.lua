@@ -3,7 +3,7 @@ return {
         -- to search in files in given directory: mysearchterm -- -g=**/mySubDirectory/**, eg
         -- others -- -g=appcode/migrations/**
         "folke/snacks.nvim",
-        priority = 1000,
+        priority = 10, -- Load this plugin first
         lazy = false,
         ---@diagnostic disable-next-line: undefined-doc-name
         ---@type snacks.Config
@@ -24,7 +24,9 @@ return {
                 sources = {
                     files = { hidden = true, ignored = true },
                     explorer = {
-                        layout = { auto_hide = { "input" } } }
+                        auto_close = true, -- close explorer when file was chosen
+                        layout = { auto_hide = { "input" } }
+                    }
                 }
             },
             quickfile = { enabled = true },
@@ -95,9 +97,9 @@ return {
             { "<leader>gf",      function() Snacks.picker.git_log_file() end,                            desc = "Git Log File" },
             -- Grep
             -- { "<leader>sb",      function() Snacks.picker.lines() end,                                   desc = "Buffer Lines" },
-            { "<leader>sb",       function() Snacks.picker.grep_buffers() end,                            desc = "Grep Open Buffers" },
+            { "<leader>sb",      function() Snacks.picker.grep_buffers() end,                            desc = "Grep Open Buffers" },
             { "<leader>sg",      function() Snacks.picker.grep() end,                                    desc = "Grep" },
-            { "<leader>sw",      function() Snacks.picker.grep_word() end,                               desc = "Visual selection or word", mode = { "n", "x" } },
+            { "<leader>sw",      function() Snacks.picker.grep_word() end,                               desc = "Visual selection or word",             mode = { "n", "x" } },
             -- search
             { '<leader>s"',      function() Snacks.picker.registers() end,                               desc = "Registers" },
             { '<leader>s/',      function() Snacks.picker.search_history() end,                          desc = "Search History" },
@@ -121,11 +123,11 @@ return {
             { "<leader>su",      function() Snacks.picker.undo() end,                                    desc = "Undo History" },
             { "<leader>uC",      function() Snacks.picker.colorschemes() end,                            desc = "Colorschemes" },
             -- LSP
-            { "\\d",             function() Snacks.picker.lsp_definitions() end,                         desc = "Goto Definition" },
-            { "\\D",             function() Snacks.picker.lsp_declarations() end,                        desc = "Goto Declaration" },
-            { "\\r",             function() Snacks.picker.lsp_references() end,                          mode = 'n',                        nowait = true,      desc = "References Snacks" },
-            { "\\I",             function() Snacks.picker.lsp_implementations() end,                     desc = "Goto Implementation" },
-            { "\\y",             function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto T[y]pe Definition" },
+            --     { "\\d",             function() Snacks.picker.lsp_definitions() end,                         desc = "Goto Definition" },
+            --     { "\\D",             function() Snacks.picker.lsp_declarations() end,                        desc = "Goto Declaration" },
+            { "gr",             function() Snacks.picker.lsp_references() end,                           mode = 'n',                                    nowait = true,      desc = "References Snacks" },
+            { "gI",             function() Snacks.picker.lsp_implementations() end,                     desc = "Goto Implementation" },
+            { "gt",             function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto T[y]pe Definition" },
             { "<leader>ss",      function() Snacks.picker.lsp_symbols() end,                             desc = "LSP Symbols" },
             { "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end,                   desc = "LSP Workspace Symbols" },
             -- Other
@@ -135,16 +137,16 @@ return {
             { "<leader>S",       function() Snacks.scratch.select() end,                                 desc = "Select Scratch Buffer" },
             { "<leader>n",       function() Snacks.notifier.show_history() end,                          desc = "Notification History" },
             -- { "<leader>dba",     ':%bd | e# | bd#<cr> |\'"',                                             desc = "Delete All Buffers except current one" },
-            { "<leader>dbo",     function() Snacks.bufdelete.other() end,                               desc = "Delete All Buffers except current one" },
+            { "<leader>dbo",     function() Snacks.bufdelete.other() end,                                desc = "Delete All Buffers except current one" },
             { "<leader>db",      function() Snacks.bufdelete() end,                                      desc = "Delete Buffer" },
             { "<leader>cR",      function() Snacks.rename.rename_file() end,                             desc = "Rename File" },
-            { "<leader>gB",      function() Snacks.gitbrowse() end,                                      desc = "Git Browse",               mode = { "n", "v" } },
+            { "<leader>gB",      function() Snacks.gitbrowse() end,                                      desc = "Git Browse",                           mode = { "n", "v" } },
             { "<leader>gg",      function() Snacks.lazygit() end,                                        desc = "Lazygit" },
             { "<leader>un",      function() Snacks.notifier.hide() end,                                  desc = "Dismiss All Notifications" },
             { "<c-/>",           function() Snacks.terminal() end,                                       desc = "Toggle Terminal" },
             { "<c-_>",           function() Snacks.terminal() end,                                       desc = "which_key_ignore" },
-            { "]]",              function() Snacks.words.jump(vim.v.count1) end,                         desc = "Next Reference",           mode = { "n", "t" } },
-            { "[[",              function() Snacks.words.jump(-vim.v.count1) end,                        desc = "Prev Reference",           mode = { "n", "t" } },
+            { "]]",              function() Snacks.words.jump(vim.v.count1) end,                         desc = "Next Reference",                       mode = { "n", "t" } },
+            { "[[",              function() Snacks.words.jump(-vim.v.count1) end,                        desc = "Prev Reference",                       mode = { "n", "t" } },
         },
     }
 }
