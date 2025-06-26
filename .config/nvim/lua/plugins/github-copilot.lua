@@ -1,5 +1,14 @@
 return {
-    { "github/copilot.vim" },         -- or zbirenbaum/copilot.lua
+    {
+        "github/copilot.vim",
+        config = function()
+            vim.g.copilot_idle_delay = 600 -- add a delay before suggestions appear
+
+            --vim.g.copilot_no_tab_map = true -- Disable default tab mapping
+            -- and set Shift-Tab to accept suggestions
+            --vim.api.nvim_set_keymap("i", "<S-Tab>", 'copilot#Accept("<CR>")', { expr = true, silent = true })
+        end,
+    }, -- or zbirenbaum/copilot.lua
     {
         "CopilotC-Nvim/CopilotChat.nvim",
         dependencies = {

@@ -50,6 +50,9 @@ vim.o.clipboard="unnamedplus"
 vim.keymap.set({'n', 'x'}, 'gy', '"+y', {desc = 'Copy to clipboard'})
 vim.keymap.set({'n', 'x'}, 'gp', '"+p', {desc = 'Paste clipboard text'})
 
+vim.keymap.set({'v'}, '<leader>vj', [[:'<,'>!jq .<CR>]], {desc = 'Run jq on selected text'})
+vim.keymap.set('v', '<leader>vp', [[:'<,'>!~/scripts/phpcbf-wrapper.sh<CR>]], { desc = 'Auto-fix PHP with phpcbf (wrapper)' })
+
 vim.keymap.set("n", "<Tab>", function()
   if vim.bo.modifiable and not vim.bo.readonly and vim.bo.modified then
     vim.cmd("write")
