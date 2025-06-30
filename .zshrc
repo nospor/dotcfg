@@ -188,10 +188,10 @@ export BEHAT_ENV_USR="behat"
 alias lzd='lazydocker'
 alias dotcfg='git --git-dir=$HOME/.dotcfg/ --work-tree=$HOME'
 
-#alias docker-compose='docker compose'
-alias ls='eza'
+# alias docker-compose='docker compose'
+# alias ls='eza'
 alias ll='eza -alh'
-alias tree='eza --tree'
+alias tree='eza --tree --long'
 
 alias cat='bat'
 

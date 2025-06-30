@@ -5,6 +5,12 @@ return {
         ---@module 'render-markdown'
         ---@type render.md.UserConfig
         opts = {},
+        config = function()
+            require('render-markdown').setup({
+                completions = { lsp = { enabled = true } },
+                render_modes = { 'n', 'c', 't' },
+            })
+        end
     },
 
     {
