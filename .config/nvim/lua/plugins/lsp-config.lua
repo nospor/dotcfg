@@ -8,7 +8,7 @@ return {
     {
         "mason-org/mason-lspconfig.nvim",
         opts = {
-            ensure_installed = { "lua_ls", "ts_ls", "intelephense", "jsonls", "marksman" },
+            ensure_installed = { "lua_ls", "ts_ls", "intelephense", "jsonls", "marksman"},
         },
         dependencies = {
             { "mason-org/mason.nvim", opts = {} },
@@ -29,7 +29,10 @@ return {
             lspconfig.marksman.setup({
                 capabilities = capabilities,
             })
- 
+            lspconfig.pylsp.setup({
+                capabilities = capabilities,
+            })
+
             --                        lspconfig.intelephense.setup({
             --                          capabilities = capabilities,
             --                    })

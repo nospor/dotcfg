@@ -10,6 +10,7 @@ return {
             vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
             vim.opt.foldlevel = 99
             vim.opt.foldenable = true
+            --
             -- shortcut for toggling folds: za
             -- shortcut for opening all folds: zR
             -- shortcut for closing all folds: zM
