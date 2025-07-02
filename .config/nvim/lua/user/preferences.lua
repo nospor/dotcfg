@@ -298,7 +298,9 @@ vim.opt.sessionoptions = {
     "globals",
     "skiprtp",
     "folds",
-    "localoptions",
+    "localoptions"
 }
 
-vim.opt.spelllang = { "en" }
+vim.o.spell = true
+vim.o.spelloptions = "camel,noplainbuffer"
+vim.o.spelllang = "en"
