@@ -69,6 +69,13 @@ vim.keymap.set("n", "<S-Tab>", function()
 end, { silent = true })
 
 
+-- moving lines up and down
+vim.keymap.set('n', '<c-s-up>', "<cmd>m -2<cr>==", { desc = 'Move line(s) up' })
+vim.keymap.set('n', '<c-s-down>', '<cmd>m +1<cr>==', { desc = 'Move line(s) down' })
+vim.keymap.set('v', '<C-S-Up>', ":m '<-2<CR>gv=gv", { desc = 'Move selection up' })
+vim.keymap.set('v', '<C-S-Down>', ":m '>+1<CR>gv=gv", { desc = 'Move selection down' })
+vim.keymap.set('i', '<C-S-Up>', '<Esc>:m .-2<CR>==gi', { desc = 'Move line up in insert mode' })
+vim.keymap.set('i', '<C-S-Down>', '<Esc>:m .+1<CR>==gi', { desc = 'Move line down in insert mode' })
 
 -------------------------------------------------------------------------------
 --                           Folding section
@@ -305,6 +312,8 @@ vim.o.spell = true
 vim.o.spelloptions = "camel,noplainbuffer"
 vim.o.spelllang = "en"
 
+vim.keymap.set("n", "<leader>tt", ":tabnext<CR>", { desc = "Next tab" })
+
 ----------------------
 --- Custom MACROS ----
 ----------------------
@@ -319,4 +328,3 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
     group = "VarDumpPhpMacro"
 })
-

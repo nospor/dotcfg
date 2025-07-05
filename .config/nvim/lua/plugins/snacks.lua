@@ -21,6 +21,14 @@ return {
                 enabled = true,
                 hidden = true,
                 ignored = true,
+                exclude = { -- add folder names here to exclude
+                    ".git",
+                    "node_modules",
+                    "vendor",
+                    "var",
+                    ".vscode",
+                    ".idea",
+                },
                 sources = {
                     files = { hidden = true, ignored = true },
                     explorer = {
@@ -123,11 +131,11 @@ return {
             { "<leader>su",      function() Snacks.picker.undo() end,                                    desc = "Undo History" },
             { "<leader>uC",      function() Snacks.picker.colorschemes() end,                            desc = "Colorschemes" },
             -- LSP
-            { "gd",             function() Snacks.picker.lsp_definitions() end,                         desc = "Goto Definition" },
-            { "gD",             function() Snacks.picker.lsp_declarations() end,                        desc = "Goto Declaration" },
-            { "gr",             function() Snacks.picker.lsp_references() end,                           mode = 'n',                                    nowait = true,      desc = "References Snacks" },
-            { "gI",             function() Snacks.picker.lsp_implementations() end,                     desc = "Goto Implementation" },
-            { "gt",             function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto T[y]pe Definition" },
+            { "gd",              function() Snacks.picker.lsp_definitions() end,                         desc = "Goto Definition" },
+            { "gD",              function() Snacks.picker.lsp_declarations() end,                        desc = "Goto Declaration" },
+            { "gr",              function() Snacks.picker.lsp_references() end,                          mode = 'n',                                    nowait = true,      desc = "References Snacks" },
+            { "gI",              function() Snacks.picker.lsp_implementations() end,                     desc = "Goto Implementation" },
+            { "gt",              function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto T[y]pe Definition" },
             { "<leader>ss",      function() Snacks.picker.lsp_symbols() end,                             desc = "LSP Symbols" },
             { "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end,                   desc = "LSP Workspace Symbols" },
             -- Other
@@ -137,7 +145,7 @@ return {
             { "<leader>S",       function() Snacks.scratch.select() end,                                 desc = "Select Scratch Buffer" },
             { "<leader>n",       function() Snacks.notifier.show_history() end,                          desc = "Notification History" },
             -- { "<leader>dba",     ':%bd | e# | bd#<cr> |\'"',                                             desc = "Delete All Buffers except current one" },
-            { "<leader>dbo",     function() Snacks.bufdelete.other() end,                                desc = "Delete All Buffers except current one" },
+            { "<leader>da",      function() Snacks.bufdelete.other() end,                                desc = "Delete All Buffers except current one" },
             { "<leader>db",      function() Snacks.bufdelete() end,                                      desc = "Delete Buffer" },
             { "<leader>cR",      function() Snacks.rename.rename_file() end,                             desc = "Rename File" },
             { "<leader>gB",      function() Snacks.gitbrowse() end,                                      desc = "Git Browse",                           mode = { "n", "v" } },
