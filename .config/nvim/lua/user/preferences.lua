@@ -324,7 +324,11 @@ vim.api.nvim_create_augroup("VarDumpPhpMacro", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "php",
     callback = function()
-        vim.fn.setreg("v", "viwyovar_dump($" .. esc .. "pA;" .. esc .. "")
+        vim.fn.setreg("v", "viwyovar_dump($" .. esc .. "pA;exit;" .. esc .. "")
+        vim.fn.setreg("p", "viwyoprint_r($" .. esc .. "pA;exit;" .. esc .. "")
+        vim.fn.setreg("d", "viwyodump($" .. esc .. "pA;" .. esc .. "")
     end,
     group = "VarDumpPhpMacro"
 })
+
+

@@ -26,6 +26,7 @@ return {
                     "node_modules",
                     "vendor",
                     "var",
+                    "build",
                     ".vscode",
                     ".idea",
                 },

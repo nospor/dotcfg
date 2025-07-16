@@ -8,7 +8,15 @@ return {
             },
             sections = {
                 lualine_a = { 'mode', 'buffers' },
-                lualine_c = { },
+                lualine_c = {},
+                -- to show select env file in rest
+                lualine_x = {
+                    {
+                        "rest",
+                        icon = "",
+                        fg = "#428890"
+                    }
+                }
             },
         }
     }

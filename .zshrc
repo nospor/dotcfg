@@ -197,6 +197,13 @@ alias cat='bat'
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+alias fzfp="fzf --preview 'bat --style=numbers --color=always {}'"
+alias fzfr='fzf --height 40% --reverse'
+alias fzfd="git status -s \
+ | fzf --no-sort --reverse \
+ --preview 'git diff --color=always {+2}' \
+ --bind=ctrl-j:preview-down --bind=ctrl-k:preview-up \
+ --preview-window=right:60%:wrap"
 #
 ##. "$HOME/.local/bin/env"
 #
