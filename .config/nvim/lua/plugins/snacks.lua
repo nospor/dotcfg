@@ -44,6 +44,16 @@ return {
                         layout = { auto_hide = { "input" } }
                     },
                 },
+                win = {
+                    input = {
+                        keys = {
+                            -- Press Ctrl+Q inside any picker to send results to the quickfix list
+                            ["<C-q>"] = { "qflist", mode = { "n", "i" }, desc = "Send to quickfix" },
+                            -- Optional: Alt+Q to send to the *location* list instead of quickfix
+                             ["<A-q>"] = { "loclist", mode = { "n", "i" }, desc = "Send to loclist" },
+                        },
+                    },
+                },
             },
             quickfile = { enabled = true },
             scope = { enabled = true },
