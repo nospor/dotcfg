@@ -18,6 +18,7 @@ return {
                 timeout = 2000,
             },
             picker = {
+                ui_select = true,
                 enabled = true,
                 hidden = true,
                 ignored = true,
@@ -31,12 +32,18 @@ return {
                     ".idea",
                 },
                 sources = {
-                    files = { hidden = true, ignored = true },
+                    files = {
+                        hidden = true,
+                        ignored = true,
+                    },
+                    grep = {
+                        limit = 10000, -- max number of results
+                    },
                     explorer = {
                         auto_close = true, -- close explorer when file was chosen
                         layout = { auto_hide = { "input" } }
-                    }
-                }
+                    },
+                },
             },
             quickfile = { enabled = true },
             scope = { enabled = true },

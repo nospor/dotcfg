@@ -36,6 +36,9 @@ vim.o.cursorline = true
 vim.o.splitright = true
 vim.o.splitbelow = true
 
+-- in visual mode when you paste, it doesn't yank the text you replace
+vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Paste without yanking" })
+
 -- setting b shortcut to switch to buffers
 -- vim.keymap.set('n', '<leader>b', '<cmd>buffers<cr>:buffer ', {desc = 'switch buffer'})
 

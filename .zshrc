@@ -175,6 +175,7 @@ surveyswatch() { docker run -it --name=surveywatcher --rm -v "$PWD":/usr/src/app
 surveyswatchstop() { docker stop surveywatcher }
 surveysproduction() { docker run -it --name=surveywatcher --rm -v "$PWD":/usr/src/app -w /usr/src/app node:8 ./node_modules/.bin/encore production  }
 docker-volume-size() { sudo du -sh $(docker volume inspect --format '{{ .Mountpoint }}' $@)}
+doc2txt() { libreoffice --headless --convert-to txt $@ }
 #
 #phan() { docker run -v $PWD:/mnt/src --rm -u "$(id -u):$(id -g)" cloudflare/phan:latest }
 #
@@ -213,3 +214,9 @@ export EDITOR=vim
 #
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+PATH="/home/robertn/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/robertn/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/robertn/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/robertn/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/robertn/perl5"; export PERL_MM_OPT;
