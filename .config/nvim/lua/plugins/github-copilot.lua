@@ -17,7 +17,7 @@ return {
         build = "make tiktoken",                            -- Only on MacOS or Linux
         opts = {
             -- See Configuration section for options
-            model = "claude-sonnet-4"
+            -- model = "claude-sonnet-4"
         },
         keys = {
             { "<leader>cc", "<cmd>CopilotChatToggle<cr>",   mode = "n", desc = "Copilot Chat" },
