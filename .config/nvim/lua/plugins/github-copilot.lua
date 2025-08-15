@@ -6,7 +6,10 @@ return {
 
             --vim.g.copilot_no_tab_map = true -- Disable default tab mapping
             -- and set Shift-Tab to accept suggestions
-            --vim.api.nvim_set_keymap("i", "<S-Tab>", 'copilot#Accept("<CR>")', { expr = true, silent = true })
+            --
+            -- I set Shift-Tab to also accept suggestions (Tab is still working for that too).
+            -- I do it because now I can use Shift-Tab to accept suggestions in CopilotChat window
+            vim.api.nvim_set_keymap("i", "<S-Tab>", 'copilot#Accept("<CR>")', { expr = true, silent = true })
         end,
     }, -- or zbirenbaum/copilot.lua
     {
@@ -28,7 +31,7 @@ return {
             { "<leader>cd", "<cmd>CopilotChatDocs<cr>",     mode = "v", desc = "Copilot Chat Generate Docs" },
             { "<leader>ct", "<cmd>CopilotChatTests<cr>",    mode = "v", desc = "Copilot Chat Generate Tests" },
             { "<leader>cm", "<cmd>CopilotChatCommit<cr>",   mode = "n", desc = "Copilot Chat Generate Commit Message" },
-            { "<leader>cm", "<cmd>CopilotChatCommit<cr>",   mode = "v", desc = "Copilot Chat Generate Commit for selectione" },
+            { "<leader>cm", "<cmd>CopilotChatCommit<cr>",   mode = "v", desc = "Copilot Chat Generate Commit for selection" },
         },
         -- See Commands section for default commands if you want to lazy load on them
     },
