@@ -146,6 +146,13 @@ return {
         -- I make a change, and a SQL query executed
         -- Run `:set filetype?` on a dadbod query to make sure of the filetype
         local filetype = vim.bo[buf].filetype
+        local filepath = vim.api.nvim_buf_get_name(0)
+
+        -- Skip autosave for mediatel mapping js files
+        if filepath:find("/mediatel/mapping/js", 1, true) then
+          return false
+        end
+
         if filetype == "harpoon" or filetype == "mysql" then
           return false
         end
