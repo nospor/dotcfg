@@ -4,7 +4,7 @@ return {
         config = function()
             vim.g.copilot_idle_delay = 600 -- add a delay before suggestions appear
 
-            --vim.g.copilot_no_tab_map = true -- Disable default tab mapping
+            vim.g.copilot_no_tab_map = true -- Disable default tab mapping
             -- and set Shift-Tab to accept suggestions
             --
             -- I set Shift-Tab to also accept suggestions (Tab is still working for that too).
@@ -20,7 +20,7 @@ return {
         build = "make tiktoken",                            -- Only on MacOS or Linux
         opts = {
             -- See Configuration section for options
-            -- model = "claude-sonnet-4"
+            model = "claude-sonnet-4"
         },
         keys = {
             { "<leader>cc", "<cmd>CopilotChatToggle<cr>",   mode = "n", desc = "Copilot Chat" },
