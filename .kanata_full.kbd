@@ -52,11 +52,15 @@
   ;;num (tap-hold $tap-time $hold-time s (layer-toggle numbers))
   l_sym (layer-toggle symbols)
   l_num (layer-toggle numbers)
+  l_chars (layer-toggle chars)
   l_anum (layer-toggle a-numbers)
   l_ssym (layer-toggle s-symbols)
   a (tap-hold $tap-time $hold-time a @l_sym)
   s (tap-hold $tap-time $hold-time s @l_num)
+  d (tap-hold $tap-time $hold-time d @l_chars)
   f (tap-hold $tap-time $hold-time f @l_anum)
+  ; (tap-hold $tap-time $hold-time ; lctl)
+  ' (tap-hold $tap-time $hold-time ' rsft)
   tab (tap-hold $tap-time $hold-time tab S-tab)
 )
 
@@ -64,7 +68,7 @@
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   @tab q    w    e    r    t    y    u    i    o    p    [    ]    \
-  @cec @a   @s   d    @f   g    h    j    k    l    ;    '    ret
+  @cec @a   @s   @d   @f   g    h    j    k    l    @;   @'   ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           @moe           ralt rmet rctl
 )
@@ -72,8 +76,17 @@
 (deflayer symbols
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    home end  _    _    _    _    _
   _    _    lsft del  bspc _    left down up   rght _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer chars
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    [    ]    _    _    _    _    _
+  _    _    lsft del  bspc _    grave -    =    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _              _              _    _    _
 )
@@ -101,7 +114,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    7    8    9    _    _    _    _
   _    lsft _    del  bspc _    0    4    5    6    _    _    _
-  _    _    _    _    _    _    A-F1 2    3    _    _    _
+  _    _    _    _    _    _    A-F1 A-F2 S-Insert _    _    _
   _    _    _              _              _    _    _
 )
 
