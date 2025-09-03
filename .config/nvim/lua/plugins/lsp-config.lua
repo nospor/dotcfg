@@ -8,7 +8,7 @@ return {
     {
         "mason-org/mason-lspconfig.nvim",
         opts = {
-            ensure_installed = { "lua_ls", "ts_ls", "intelephense", "jsonls", "marksman", "html"},
+            ensure_installed = { "lua_ls", "ts_ls", "intelephense", "jsonls", "marksman", "html" },
         },
         dependencies = {
             { "mason-org/mason.nvim", opts = {} },
@@ -42,7 +42,7 @@ return {
             --
             -- let's format every php file on save
             vim.api.nvim_create_autocmd("BufWritePre", {
-                pattern = {"*.php", "*.html", "*.py"},
+                pattern = { "*.php", "*.html", "*.py" },
                 callback = function()
                     vim.lsp.buf.format({ async = false })
                 end,

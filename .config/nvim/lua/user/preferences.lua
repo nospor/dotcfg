@@ -45,9 +45,19 @@ vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Paste without yanking" })
 vim.keymap.set('n', '<leader>w', '<cmd>write<cr>', { desc = 'Save file' })
 vim.keymap.set('n', '<leader>q', '<cmd>quitall<cr>', { desc = 'Exit vim' })
 
-vim.keymap.set('n', 'a', 'i', { desc = 'Make a as i' })
+-- vim.keymap.set('n', 'a', 'i', { desc = 'Make a as i' })
 
 vim.keymap.set('i', '<c-space>', '<c-x><c-o>')
+
+-- TERMINAL
+vim.keymap.set('t', '<leader><Esc>', [[<C-\><C-n>]], { desc = 'Escape terminal mode' })
+vim.opt.guicursor = {
+  "n-v-c:block",          -- Normal/Visual/Command-line -> block cursor
+  "i-ci:ver25",           -- Insert modes -> vertical bar, 25% width
+  "r:hor20",              -- Replace -> horizontal bar, 20% height
+  "t:ver25"
+}
+-- END TERMINAL
 
 vim.o.clipboard = "unnamedplus"
 vim.keymap.set({ 'n', 'x' }, 'gy', '"+y', { desc = 'Copy to clipboard' })
